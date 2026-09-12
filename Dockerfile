@@ -12,7 +12,7 @@ FROM python:3.11-slim AS production
 
 # hadolint ignore=DL3005
 RUN apt-get update && apt-get upgrade -y && apt-get clean && rm -rf /var/lib/apt/lists/* && \
-    pip install --no-cache-dir --upgrade pip==24.3.1 setuptools==80.10.1
+    pip install --no-cache-dir --upgrade pip==24.3.1 setuptools==84.0.0
 
 RUN groupadd -r appgroup && useradd -r -g appgroup -m appuser
 
