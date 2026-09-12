@@ -2,10 +2,17 @@ FROM python:3.11-slim AS builder
 
 WORKDIR /app
 
+# hadolint ignore=DL3005
+RUN apt-get update && apt-get upgrade -y && apt-get clean && rm -rf /var/lib/apt/lists/*
+
 COPY requirements.txt .
 RUN pip install --user --no-cache-dir -r requirements.txt
 
 FROM python:3.11-slim AS production
+
+# hadolint ignore=DL3005
+RUN apt-get update && apt-get upgrade -y && apt-get clean && rm -rf /var/lib/apt/lists/* && \
+    pip install --no-cache-dir --upgrade pip==24.3.1 setuptools==80.10.1
 
 RUN groupadd -r appgroup && useradd -r -g appgroup -m appuser
 
