@@ -1,4 +1,4 @@
-name: CI - analytics-service - Build & Unit Test
+name: Build & Unit Test
 
 on:
   push:

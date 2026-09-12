@@ -1,4 +1,4 @@
-name: CI - analytics-service - Lint & Static Analysis
+name: Lint & Static Analysis
 
 on:
   push:
